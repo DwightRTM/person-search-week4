@@ -274,29 +274,29 @@ export default function MCPTesterPage() {
                           ) : (
                             // Display single object
                             <div className="border rounded-lg p-4 space-y-3">
-                              {selectedHistory.result.name && (
+                              {(selectedHistory.result as Record<string, unknown>)?.name && (
                                 <div>
-                                  <p className="font-semibold text-lg">{selectedHistory.result.name}</p>
-                                  {selectedHistory.result.id && (
-                                    <p className="text-xs text-muted-foreground">ID: {selectedHistory.result.id}</p>
+                                  <p className="font-semibold text-lg">{(selectedHistory.result as Record<string, unknown>).name}</p>
+                                  {(selectedHistory.result as Record<string, unknown>)?.id && (
+                                    <p className="text-xs text-muted-foreground">ID: {(selectedHistory.result as Record<string, unknown>).id}</p>
                                   )}
                                 </div>
                               )}
-                              {selectedHistory.result.email && (
+                              {(selectedHistory.result as Record<string, unknown>)?.email && (
                                 <div className="flex items-center gap-2">
                                   <span className="text-sm font-medium">📧</span>
-                                  <span className="text-sm">{selectedHistory.result.email}</span>
+                                  <span className="text-sm">{(selectedHistory.result as Record<string, unknown>).email}</span>
                                 </div>
                               )}
-                              {selectedHistory.result.phoneNumber && (
+                              {(selectedHistory.result as Record<string, unknown>)?.phoneNumber && (
                                 <div className="flex items-center gap-2">
                                   <span className="text-sm font-medium">📞</span>
-                                  <span className="text-sm">{selectedHistory.result.phoneNumber}</span>
+                                  <span className="text-sm">{(selectedHistory.result as Record<string, unknown>).phoneNumber}</span>
                                 </div>
                               )}
-                              {selectedHistory.result.createdAt && (
+                              {(selectedHistory.result as Record<string, unknown>)?.createdAt && (
                                 <div className="text-xs text-muted-foreground">
-                                  Created: {new Date(selectedHistory.result.createdAt).toLocaleDateString()}
+                                  Created: {new Date((selectedHistory.result as Record<string, unknown>).createdAt as string).toLocaleDateString()}
                                 </div>
                               )}
                             </div>

@@ -3,7 +3,7 @@ import path from 'path';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  // Turbopack config for Next.js 16
+  // Turbopack config for Next.js 16 with default optimization
   turbopack: {
     resolveAlias: {
       '@': path.resolve(__dirname),
