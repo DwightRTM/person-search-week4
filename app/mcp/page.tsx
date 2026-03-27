@@ -274,30 +274,30 @@ export default function MCPTesterPage() {
                           ) : (
                             // Display single object
                             (() => {
-                              const result = selectedHistory.result as any
+                              const result = selectedHistory.result as Record<string, any>
                               return (
                                 <div className="border rounded-lg p-4 space-y-3">
-                                  {result?.name ? (
+                                  {result.name ? (
                                     <div>
                                       <p className="font-semibold text-lg">{String(result.name)}</p>
-                                      {result?.id && (
+                                      {result.id ? (
                                         <p className="text-xs text-muted-foreground">ID: {String(result.id)}</p>
-                                      )}
+                                      ) : null}
                                     </div>
                                   ) : null}
-                                  {result?.email ? (
+                                  {result.email ? (
                                     <div className="flex items-center gap-2">
                                       <span className="text-sm font-medium">📧</span>
                                       <span className="text-sm">{String(result.email)}</span>
                                     </div>
                                   ) : null}
-                                  {result?.phoneNumber ? (
+                                  {result.phoneNumber ? (
                                     <div className="flex items-center gap-2">
                                       <span className="text-sm font-medium">📞</span>
                                       <span className="text-sm">{String(result.phoneNumber)}</span>
                                     </div>
                                   ) : null}
-                                  {result?.createdAt ? (
+                                  {result.createdAt ? (
                                     <div className="text-xs text-muted-foreground">
                                       Created: {new Date(String(result.createdAt)).toLocaleDateString()}
                                     </div>
