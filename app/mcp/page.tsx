@@ -273,33 +273,38 @@ export default function MCPTesterPage() {
                             </div>
                           ) : (
                             // Display single object
-                            <div className="border rounded-lg p-4 space-y-3">
-                              {(selectedHistory.result as Record<string, unknown>)?.name && (
-                                <div>
-                                  <p className="font-semibold text-lg">{(selectedHistory.result as Record<string, unknown>).name}</p>
-                                  {(selectedHistory.result as Record<string, unknown>)?.id && (
-                                    <p className="text-xs text-muted-foreground">ID: {(selectedHistory.result as Record<string, unknown>).id}</p>
-                                  )}
+                            (() => {
+                              const result = selectedHistory.result as any
+                              return (
+                                <div className="border rounded-lg p-4 space-y-3">
+                                  {result?.name ? (
+                                    <div>
+                                      <p className="font-semibold text-lg">{String(result.name)}</p>
+                                      {result?.id && (
+                                        <p className="text-xs text-muted-foreground">ID: {String(result.id)}</p>
+                                      )}
+                                    </div>
+                                  ) : null}
+                                  {result?.email ? (
+                                    <div className="flex items-center gap-2">
+                                      <span className="text-sm font-medium">📧</span>
+                                      <span className="text-sm">{String(result.email)}</span>
+                                    </div>
+                                  ) : null}
+                                  {result?.phoneNumber ? (
+                                    <div className="flex items-center gap-2">
+                                      <span className="text-sm font-medium">📞</span>
+                                      <span className="text-sm">{String(result.phoneNumber)}</span>
+                                    </div>
+                                  ) : null}
+                                  {result?.createdAt ? (
+                                    <div className="text-xs text-muted-foreground">
+                                      Created: {new Date(String(result.createdAt)).toLocaleDateString()}
+                                    </div>
+                                  ) : null}
                                 </div>
-                              )}
-                              {(selectedHistory.result as Record<string, unknown>)?.email && (
-                                <div className="flex items-center gap-2">
-                                  <span className="text-sm font-medium">📧</span>
-                                  <span className="text-sm">{(selectedHistory.result as Record<string, unknown>).email}</span>
-                                </div>
-                              )}
-                              {(selectedHistory.result as Record<string, unknown>)?.phoneNumber && (
-                                <div className="flex items-center gap-2">
-                                  <span className="text-sm font-medium">📞</span>
-                                  <span className="text-sm">{(selectedHistory.result as Record<string, unknown>).phoneNumber}</span>
-                                </div>
-                              )}
-                              {(selectedHistory.result as Record<string, unknown>)?.createdAt && (
-                                <div className="text-xs text-muted-foreground">
-                                  Created: {new Date((selectedHistory.result as Record<string, unknown>).createdAt as string).toLocaleDateString()}
-                                </div>
-                              )}
-                            </div>
+                              )
+                            })()
                           )
                         ) : typeof selectedHistory.result === 'string' ? (
                           <div className="bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg p-4">
