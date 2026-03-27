@@ -1,3 +1,5 @@
 shamefully-hoist=true
 prefer-workspace-root=true
 auto-install-peers=true
+# Allow build scripts for critical dependencies
+allow-build-scripts=@prisma/client,@prisma/engines,prisma,sharp,unrs-resolver
