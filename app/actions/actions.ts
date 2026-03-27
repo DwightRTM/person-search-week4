@@ -40,7 +40,7 @@ export async function searchUsers(query: string): Promise<User[]> {
                 },
             },
         })
-        return results.map(person => ({
+        return results.map((person: typeof results[number]) => ({
             id: person.id,
             name: person.name,
             email: person.email,
