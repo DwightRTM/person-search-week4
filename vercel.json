@@ -12,12 +12,7 @@
       "SKIP_ENV_VALIDATION": "true"
     }
   },
-  "regions": ["iad1"],
-  "functions": {
-    "api/**": {
-      "maxDuration": 60
-    }
-  }
+  "regions": ["iad1"]
 }
   
   
