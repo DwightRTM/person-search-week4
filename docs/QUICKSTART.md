@@ -36,9 +36,16 @@ $env:DATABASE_URL = (Get-Content .env.local | Select-String 'DATABASE_URL' | For
 #### Step 2: Configure Claude Desktop (2 min)
 
 **Find your config file:**
-- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
-- Linux: `~/.config/Claude/claude_desktop_config.json`
+
+**macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+**Windows (Standard):** `%APPDATA%\Claude\claude_desktop_config.json`
+
+**Windows (Store Version):** `C:\Users\YourUsername\AppData\Local\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Roaming\Claude\claude_desktop_config.json`
+
+**Linux:** `~/.config/Claude/claude_desktop_config.json`
+
+> **Note:** If you installed Claude from Microsoft Store, use the Windows (Store Version) path above.
 
 **Add this to the file:**
 ```json

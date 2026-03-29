@@ -70,22 +70,33 @@ Press `Ctrl+C` to stop.
 
 ### Step 1: Locate Claude Desktop Config
 
-The configuration file is platform-specific:
+The configuration file location depends on your installation:
 
 **macOS:**
 ```
 ~/Library/Application Support/Claude/claude_desktop_config.json
 ```
 
-**Windows:**
+**Windows (Standard Installation):**
 ```
 %APPDATA%\Claude\claude_desktop_config.json
+C:\Users\YourUsername\AppData\Roaming\Claude\claude_desktop_config.json
+```
+
+**Windows (Microsoft Store Version):**
+```
+C:\Users\YourUsername\AppData\Local\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Roaming\Claude\claude_desktop_config.json
 ```
 
 **Linux:**
 ```
 ~/.config/Claude/claude_desktop_config.json
 ```
+
+**How to know which version you have?**
+- Open PowerShell and run: `explorer "$env:APPDATA\Claude"`
+- If the folder exists → use Standard path
+- If it doesn't exist → you likely have Store version, use the path in `AppData\Local\Packages\Claude_...`
 
 ### Step 2: Update Configuration
 
