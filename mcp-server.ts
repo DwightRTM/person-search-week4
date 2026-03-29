@@ -129,7 +129,9 @@ const server = new Server(
   },
   {
     capabilities: {
-      tools: {},
+      tools: {
+        listChanged: true,
+      },
     },
   }
 );
@@ -143,6 +145,9 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args } = request;
   const input = args as ToolInput;
+
+  // Debug: Log what we received
+  console.error(`[DEBUG] Received tool call: name="${name}", args=${JSON.stringify(args)}`);
 
   try {
     switch (name) {
