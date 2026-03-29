@@ -1,9 +1,0 @@
-{
-  "mcpServers": {
-    "person-search": {
-      "command": "pnpm",
-      "args": ["mcp-server"],
-      "cwd": "/path/to/person-search-week4"
-    }
-  }
-}
