@@ -137,16 +137,102 @@ Routes:
 
 ---
 
-## 🔗 Claude Desktop Integration (Optional)
+## 🔗 Claude Desktop Integration
 
-### Setup MCP Server
+### ✅ MCP Setup Instructions Complete
 
-1. Build the MCP server:
-```bash
-cd ../person-search-mcp-server
-pnpm build
-pnpm start
+The **Person Search MCP Server** is now fully configured for Claude Desktop integration. This allows Claude to interact with your person database directly.
+
+### 🚀 Fastest Setup (Automated Scripts)
+
+**Windows PowerShell:**
+```powershell
+.\setup-mcp-windows.ps1
+# Select option 4 to automatically setup and start the server
 ```
+
+**macOS/Linux:**
+```bash
+chmod +x ./setup-mcp-unix.sh
+./setup-mcp-unix.sh
+# Select option 4 to automatically setup and start the server
+```
+
+### Manual Setup
+
+1. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
+
+2. **Run the MCP Server:** 
+   ```bash
+   pnpm mcp-server
+   ```
+
+3. **Configure Claude Desktop:**
+   - Follow the complete setup guide: [docs/MCP-SETUP.md](docs/MCP-SETUP.md)
+   - Includes platform-specific configuration steps
+   - Copy the example config and update the path
+
+4. **Start using in Claude:**
+   - Ask Claude to manage person records
+   - All CRUD operations available
+   - Natural language interface
+
+### 📚 Documentation
+
+- **[docs/QUICKSTART.md](docs/QUICKSTART.md)** - 5-minute setup guide (recommended starting point)
+  - Automated setup script instructions
+  - Manual step-by-step guide
+  - Platform-specific notes
+
+- **[docs/MCP-SETUP.md](docs/MCP-SETUP.md)** - Complete setup guide for Claude Desktop
+  - Prerequisites and installation
+  - Configuration for all platforms (macOS, Windows, Linux)
+  - Troubleshooting guide
+  - Available tools reference
+  - Security considerations
+
+- **[docs/CHECKLIST.md](docs/CHECKLIST.md)** - Verification checklist
+  - Step-by-step verification for each phase
+  - Platform-specific paths and commands
+  - Success criteria
+
+- **[docs/MCP-IMPLEMENTATION.md](docs/MCP-IMPLEMENTATION.md)** - Technical details
+  - Architecture overview
+  - Implementation details
+  - Database integration
+  - Performance characteristics
+  - Extensibility guide
+
+- **[docs/claude_desktop_config.json.example](docs/claude_desktop_config.json.example)** - Configuration template
+  - Copy to `~/Library/Application Support/Claude/claude_desktop_config.json`
+  - Update the path to your project
+  - Platform-specific paths included in MCP-SETUP.md
+
+### How It Works
+
+```
+You ask Claude:
+"Create a person named John with email john@example.com"
+       │
+       ▼
+Claude uses MCP tools
+       │
+       ▼
+Person Search MCP Server processes request
+       │
+       ▼
+Database is updated
+       │
+       ▼
+Result returned to Claude
+```
+
+---
+
+## 🔗 Legacy - Original Setup (Optional)
 
 2. Configure Claude Desktop:
    - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
