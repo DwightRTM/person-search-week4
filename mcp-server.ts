@@ -142,12 +142,10 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 });
 
 // Handle tool calls
-server.setRequestHandler(CallToolRequestSchema, async (request) => {
-  const { name, arguments: args } = request;
+server.setRequestHandler(CallToolRequestSchema, async (request: any) => {
+  const name = request.params?.name || request.name;
+  const args = request.params?.arguments || request.arguments || {};
   const input = args as ToolInput;
-
-  // Debug: Log what we received
-  console.error(`[DEBUG] Received tool call: name="${name}", args=${JSON.stringify(args)}`);
 
   try {
     switch (name) {
@@ -290,7 +288,6 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("Person Search MCP server running on stdio");
 }
 
 main().catch(console.error);
